@@ -1,7 +1,8 @@
 import {
     StyleSheet,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    View
 } from "react-native";
 
 import {
@@ -19,9 +20,7 @@ export default function MenuItem({
             style={styles.container}
             onPress={onPress}
         >
-            <Text style={styles.icon}>
-                {icon}
-            </Text>
+            <View style={styles.iconWrap}><Text style={styles.icon}>{icon}</Text></View>
 
             <Text style={styles.title}>
                 {title}
@@ -38,18 +37,23 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        paddingVertical: 16,
-        paddingHorizontal: 20,
+        paddingVertical: 13,
+        paddingHorizontal: 12,
+        borderRadius: 16,
+        marginBottom: 4,
     },
+    iconWrap: { width: 36, height: 36, borderRadius: 12, backgroundColor: "#EEF2F7", alignItems: "center", justifyContent: "center", marginRight: 11 },
     icon: {
-        fontSize: 22,
-        width: 40,
+        fontSize: 18,
     },
     title: {
         flex: 1,
-        fontSize: 16,
+        fontSize: 15,
+        fontWeight: "600",
+        color: "#344054",
     },
     arrow: {
-        fontSize: 24,
+        fontSize: 23,
+        color: "#A1ACBA",
     },
 });

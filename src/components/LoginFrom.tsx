@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 import {
-    Button,
     Pressable,
     StyleSheet,
     Text,
@@ -78,6 +77,8 @@ export default function LoginForm({
     return (
         <View style={styles.container}>
 
+            <Text style={styles.eyebrow}>PORTAL DEL ALUMNO</Text>
+
             <Text style={styles.title}>
                 Iniciar sesión
             </Text>
@@ -140,7 +141,7 @@ export default function LoginForm({
                     style={styles.showButton}
                     disabled={loading}
                 >
-                    <Text>
+                <Text style={styles.showText}>
                         {showPassword
                             ? "Ocultar"
                             : "Mostrar"}
@@ -165,15 +166,13 @@ export default function LoginForm({
 
             {/* BOTÓN */}
 
-            <Button
-                title={
-                    loading
-                        ? "Validando..."
-                        : "Iniciar sesión"
-                }
+            <Pressable
+                style={({ pressed }) => [styles.submit, pressed && styles.submitPressed, loading && styles.submitDisabled]}
                 onPress={handleLogin}
                 disabled={loading}
-            />
+            >
+                <Text style={styles.submitText}>{loading ? "Validando..." : "Iniciar sesión"}</Text>
+            </Pressable>
 
         </View>
     );
@@ -183,54 +182,104 @@ const styles = StyleSheet.create({
 
     container: {
         width: "100%",
-        padding: 20,
+        maxWidth: 440,
+        padding: 26,
+        borderRadius: 28,
+        backgroundColor: "rgba(255,255,255,0.86)",
+        borderWidth: 1,
+        borderColor: "#FFFFFF",
+        shadowColor: "#667085",
+        shadowOffset: { width: 0, height: 12 },
+        shadowOpacity: 0.09,
+        shadowRadius: 24,
+        elevation: 4,
+    },
+    eyebrow: {
+        color: "#718096",
+        fontSize: 11,
+        fontWeight: "700",
+        letterSpacing: 1.5,
+        textAlign: "center",
+        marginBottom: 10,
     },
 
     title: {
         fontSize: 28,
-        fontWeight: "bold",
+        fontWeight: "700",
         textAlign: "center",
-        marginBottom: 30,
+        marginBottom: 28,
+        color: "#1D2939",
     },
 
     label: {
-        fontSize: 16,
-        fontWeight: "bold",
-        marginBottom: 5,
+        fontSize: 14,
+        fontWeight: "600",
+        marginBottom: 8,
+        color: "#475467",
     },
 
     input: {
         borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 8,
-        padding: 12,
-        marginBottom: 5,
+        borderColor: "#E4E9F0",
+        borderRadius: 15,
+        paddingHorizontal: 15,
+        paddingVertical: 14,
+        marginBottom: 19,
+        backgroundColor: "rgba(248,250,252,0.85)",
+        color: "#1D2939",
     },
 
     passwordContainer: {
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 8,
-        marginBottom: 5,
+        borderColor: "#E4E9F0",
+        borderRadius: 15,
+        marginBottom: 22,
+        backgroundColor: "rgba(248,250,252,0.85)",
     },
 
     passwordInput: {
         flex: 1,
-        padding: 12,
+        paddingHorizontal: 15,
+        paddingVertical: 14,
+        color: "#1D2939",
     },
 
     showButton: {
-        padding: 10,
+        paddingHorizontal: 14,
+        paddingVertical: 12,
+    },
+    showText: {
+        color: "#63748A",
+        fontSize: 13,
+        fontWeight: "600",
     },
 
     inputError: {
-        borderColor: "red",
+        borderColor: "#D92D20",
     },
 
     error: {
-        color: "red",
+        color: "#B42318",
         marginBottom: 15,
+    },
+    submit: {
+        backgroundColor: "#344F77",
+        paddingVertical: 16,
+        alignItems: "center",
+        borderRadius: 16,
+        marginTop: 3,
+    },
+    submitPressed: {
+        opacity: 0.88,
+    },
+    submitDisabled: {
+        opacity: 0.65,
+    },
+    submitText: {
+        color: "#FFFFFF",
+        fontSize: 16,
+        fontWeight: "600",
     },
 });

@@ -58,6 +58,7 @@ export default function SideMenu({
                 </View>
 
                 {/* OPCIÓN INICIO */}
+                <Text style={styles.menuSection}>MENÚ</Text>
                 <MenuItem
                     title="Inicio"
                     icon="🏠"
@@ -119,11 +120,16 @@ const styles = StyleSheet.create({
         zIndex: 1000,
     },
     menu: {
-        width: "80%",
+        width: "82%",
         height: "100%",
-        backgroundColor: "#FFFFFF",
-        paddingTop: 50,
-        paddingBottom: 20,
+        backgroundColor: "rgba(250,252,254,0.98)",
+        paddingTop: 58,
+        paddingBottom: 22,
+        paddingHorizontal: 12,
+        borderTopRightRadius: 30,
+        borderBottomRightRadius: 30,
+        borderRightWidth: 1,
+        borderColor: "rgba(255,255,255,0.9)",
         elevation: 10,
         shadowColor: "#000",
         shadowOffset: {
@@ -134,35 +140,46 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
     },
     userContainer: {
-        paddingHorizontal: 20,
-        paddingBottom: 25,
+        paddingHorizontal: 10,
+        paddingBottom: 24,
+        marginBottom: 18,
         borderBottomWidth: 1,
-        borderBottomColor: "#EEEEEE",
+        borderBottomColor: "#E9EDF2",
         alignItems: "center",
     },
     avatar: {
-        width: 75,
-        height: 75,
-        borderRadius: 38,
-        backgroundColor: "#2563EB",
+        width: 78,
+        height: 78,
+        borderRadius: 25,
+        backgroundColor: "#E8EEF8",
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 12,
+        borderWidth: 4,
+        borderColor: "#FFFFFF",
     },
     avatarText: {
-        color: "#FFFFFF",
+        color: "#42618F",
         fontSize: 30,
         fontWeight: "bold",
     },
     name: {
         fontSize: 19,
-        fontWeight: "bold",
-        color: "#111827",
+        fontWeight: "700",
+        color: "#1D2939",
         marginBottom: 4,
     },
     email: {
         fontSize: 14,
-        color: "#6B7280",
+        color: "#7A8798",
+    },
+    menuSection: {
+        color: "#9AA5B3",
+        fontSize: 10,
+        fontWeight: "700",
+        letterSpacing: 1.4,
+        marginHorizontal: 12,
+        marginBottom: 8,
     },
     spacer: {
         flex: 1,
@@ -170,10 +187,13 @@ const styles = StyleSheet.create({
     logout: {
         flexDirection: "row",
         alignItems: "center",
-        paddingHorizontal: 20,
-        paddingVertical: 18,
+        paddingHorizontal: 12,
+        paddingVertical: 17,
+        marginTop: 10,
+        borderRadius: 17,
+        backgroundColor: "#F3F5F8",
         borderTopWidth: 1,
-        borderTopColor: "#EEEEEE",
+        borderTopColor: "#E9EDF2",
     },
     logoutIcon: {
         fontSize: 22,
@@ -181,11 +201,11 @@ const styles = StyleSheet.create({
     },
     logoutText: {
         fontSize: 16,
-        color: "#DC2626",
+        color: "#B54745",
         fontWeight: "600",
     },
     background: {
         flex: 1,
-        backgroundColor: "rgba(0, 0, 0, 0.45)",
+        backgroundColor: "rgba(31, 43, 59, 0.24)",
     },
 });
